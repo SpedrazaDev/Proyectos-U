@@ -1,5 +1,5 @@
-import requests  # Se importa la librería requests para hacer solicitudes HTTP.
-
+ # Se importa la librería requests para hacer solicitudes HTTP.
+import requests 
 # URL del servidor PHP que maneja la lógica del chatbot.
 URL_PHP  = "https://leoviquez.com/IproyectoIntro/"
 
