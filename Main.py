@@ -1,6 +1,6 @@
-from API import chat_con_php
+import API
 import UsrManagement
-import openai
+import ChatManagement
 
 
 def menuMain():
@@ -22,7 +22,6 @@ def menuMain():
                     print("Error al iniciar sesión.")
             elif choice == 2:
                 UsrManagement.registroUsusuarios()
-                break  # Regresar al menú principal después de registrar
             elif choice == 3:
                 print("¡Hasta luego!")
                 exit()  # Salir del programa
@@ -49,10 +48,8 @@ def subMenuInicioSesion(nombreUsr):
             choice = int(input("Seleccione la opcion que desea realizar: "))
             if choice == 1:
                 chat(nombreUsr)
-                break  # Regresar al submenú de inicio de sesión después del chat
             elif choice == 2:
-                UsrManagement.historialConversaciones(nombreUsr)
-                break  # Regresar al submenú de inicio de sesión
+                ChatManagement.historialConversaciones(nombreUsr)
             elif choice == 3:
                 return(menuMain())
             else:
@@ -73,11 +70,12 @@ def chat(nombreUsr):
         mensaje = input("Tú: ")  # Solicita el mensaje del usuario
         if mensaje.lower() in ["salir", "exit", "quit"]:
             print("ChatGPT: ¡Hasta luego!")
+            ChatManagement.escribirArchivosConv(nombreUsr, API.conversacion)
+            API.conversacion=[{"role": "system", "content": "Eres un asistente útil y conversacional."}]
             break  # Termina el chat cuando el usuario escribe 'salir'
-        respuesta = chat_con_php(mensaje)  # Llama a la función de PHP
+
+            
+        respuesta = API.chat_con_php(mensaje)  # Llama a la función de PHP
         print(f"ChatGPT: {respuesta}")  # Muestra la respuesta del chat
-        UsrManagement.escribirArchivosConv(nombreUsr, mensaje, respuesta)
-
-
 
 menuMain()
