@@ -1,8 +1,0 @@
-Tú: Hola,como estas?
-ChatGPT: ¡Hola! Estoy aquí y listo para ayudarte. ¿Cómo te encuentras tú?
-Tú: Hola
-ChatGPT: ¡Hola! ¿Cómo puedo ayudarte hoy?
-Tú: como esta?
-ChatGPT: ¡Estoy bien, gracias! ¿Y tú, cómo estás?
-Tú: sigues ahi?
-ChatGPT: ¡Sí, aquí estoy! ¿En qué puedo ayudarte?
