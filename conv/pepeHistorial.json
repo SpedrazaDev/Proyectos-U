@@ -1,0 +1,24 @@
+[
+    [
+        [
+            "hola",
+            "¡Hola! ¿Cómo puedo ayudarte hoy?"
+        ]
+    ],
+    [
+        [
+            "sapo",
+            "¡Hola! ¿Te refieres a los sapos como animales? Los sapos son anfibios que suelen encontrarse en ambientes húmedos y son conocidos por su piel rugosa y sus croares. ¿O te referías a otra cosa? ¡Cuéntame!"
+        ],
+        [
+            "si",
+            "¡Genial! Los sapos son criaturas fascinantes. Tienen una piel que les ayuda a absorber la humedad y la mayoría de las especies son terrestres. También pueden ser bastante variados en tamaño y color. Además, juegan un papel importante en su ecosistema, ya que controlan poblaciones de insectos. ¿Tienes alguna pregunta específica sobre los sapos o algún aspecto en particular que te interese?"
+        ]
+    ],
+    [
+        [
+            "adios",
+            "¡Adiós! Si necesitas algo más en el futuro, no dudes en regresar. ¡Cuídate!"
+        ]
+    ]
+]
