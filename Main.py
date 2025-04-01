@@ -1,13 +1,14 @@
 import API
 import UsrManagement
 import ChatManagement
+import shutil 
 
 
 def menuMain():
     """Menú Principal, donde se inicia sesión, registra usuarios nuevos
     """
     while True:
-        print("-----Menu de Opciones-----")
+        print("-----Menu Principal-----")
         print("1. Iniciar Sesion")
         print("2. Registrar Usuario")
         print("3. Salir")
@@ -49,9 +50,39 @@ def subMenuInicioSesion(nombreUsr):
             if choice == 1:
                 chat(nombreUsr)
             elif choice == 2:
-                ChatManagement.historialConversaciones(nombreUsr)
+                menuHistorialConversaciones(nombreUsr)
             elif choice == 3:
                 return(menuMain())
+            else:
+
+                print("Opción inválida. Intente nuevamente.")
+        except ValueError:
+            print("Por favor, ingrese un número válido.")
+
+
+def menuHistorialConversaciones(nombreUsr):
+    """El submenú de la funcion de inicio de sesión
+
+    Args:
+        nombreUsr (str): el nombre de usuario con el que se inicio sesión
+    """
+    while True:
+        print("-----Menú de Historial de Conversaciones-----")
+        print("1. Historial")
+        print("2. Buscar por palabra clave")
+        print("3. Resumir Conversacion")
+        print("4. Salir")
+
+        try:
+            choice = int(input("Seleccione la opcion que desea realizar: "))
+            if choice == 1: 
+                ChatManagement.historialConversaciones(nombreUsr)
+            elif choice == 2:
+                ChatManagement.palabrasClave(nombreUsr)
+            elif choice == 3:
+                pass
+            elif choice == 4:
+                return(subMenuInicioSesion(nombreUsr))
             else:
 
                 print("Opción inválida. Intente nuevamente.")
