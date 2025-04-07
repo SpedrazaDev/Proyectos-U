@@ -1,28 +1,34 @@
 [
     [
         [
-            "Hola como estas?",
+            "Hola,como estas",
             "¡Hola! Estoy aquí y listo para ayudarte. ¿Cómo estás tú?"
         ]
     ],
     [
         [
-            "Como estas miamor?",
-            "¡Hola! Estoy aquí y listo para ayudarte. ¿Y tú, cómo estás?"
-        ],
-        [
-            "Dame los tres animales mas rapidos del mundo",
-            "Claro, aquí tienes los tres animales más rápidos del mundo:\n\n1. **Peregrino** (Falco peregrinus): Este halcón es el ave más rápida del mundo, capaz de alcanzar velocidades de hasta 240 km/h (149 mph) durante sus picados.\n  \n2. **Guepardo** (Acinonyx jubatus): Es el mamífero terrestre más rápido, capaz de correr a velocidades de hasta 112 km/h (70 mph) en cortas distancias.\n\n3. **Marlin negro** (Istiompax indica): Este pez es uno de los más rápidos en el agua, alcanzando velocidades de 82 km/h (51 mph).\n\n¿Te gustaría saber más sobre alguno de estos animales?"
+            "Cuales son los animales más rápidos del mundo?",
+            "Los animales más rápidos del mundo varían según si se considera velocidad en el aire, en tierra o en el agua. Aquí tienes algunos ejemplos destacados:\n\n### En el aire:\n1. **El halcón peregrino**: Puede alcanzar velocidades de más de 240 km/h (149 mph) en picada.\n2. **El vencejo real**: En vuelo horizontal, puede llegar a velocidades de 160 km/h (99 mph).\n\n### En tierra:\n1. **El guepardo**: Es el animal terrestre más rápido, capaz de correr a velocidades de hasta 112 km/h (70 mph) en cortas distancias.\n2. **El antílope de Thomson**: Puede alcanzar velocidades de hasta 80 km/h (50 mph).\n\n### En el agua:\n1. **El pez vela**: Considerado el pez más rápido, puede nadar a velocidades de hasta 68 km/h (42 mph).\n2. **El tiburón mako**: También es muy rápido, alcanzando velocidades de alrededor de 74 km/h (46 mph).\n\nEstos animales han desarrollado habilidades únicas que les permiten alcanzar estas impresionantes velocidades. ¿Te gustaría saber más sobre alguno de ellos?"
         ]
     ],
     [
         [
-            "Hola cuando se fundó el FC Barcelona?",
-            "El FC Barcelona fue fundado el 29 de noviembre de 1899. Es uno de los clubes de fútbol más importantes y reconocidos del mundo. ¿Te gustaría saber algo más sobre su historia o algún otro aspecto del club?"
+            "En que año se fundó el FC Barcelona?",
+            "El FC Barcelona fue fundado el 29 de noviembre de 1899."
         ],
         [
-            "Quien es el mejor jugador de su historia?",
-            "Elegir al mejor jugador en la historia del FC Barcelona es subjetivo y puede variar según las opiniones de los aficionados. Sin embargo, dos nombres que siempre se destacan son Lionel Messi y Johan Cruyff.\n\n- **Lionel Messi**: Considerado uno de los mejores futbolistas de todos los tiempos, Messi jugó en el Barcelona desde 2004 hasta 2021. Durante su tiempo en el club, ganó numerosos títulos y rompió numerosos récords, convirtiéndose en el máximo goleador de la historia del club.\n\n- **Johan Cruyff**: Además de ser una leyenda como jugador, Cruyff tuvo un gran impacto como entrenador en el Barcelona, donde implantó un estilo de juego que ha perdurado a lo largo de los años. Su legado en el club es enorme.\n\nAmbos son figuras icónicas en la historia del Barça. ¿Tienes algún otro jugador en mente o algún aspecto específico que quieras discutir?"
+            "Es messi el mejor jugador de la historia del barca?",
+            "Lionel Messi es ampliamente considerado el mejor jugador en la historia del FC Barcelona. Durante su tiempo en el club, que abarcó desde 2004 hasta 2021, Messi rompió numerosos récords, ganó múltiples títulos y dejó una huella imborrable en la historia del club. Su habilidad, consistencia y capacidad para marcar goles lo han llevado a ser reconocido como uno de los mejores futbolistas de todos los tiempos, no solo en el Barcelona, sino en el fútbol en general. Sin embargo, la opinión sobre quién es el \"mejor\" puede ser subjetiva y varía entre los aficionados. ¿Tienes otro jugador en mente que también consideres para ese título?"
+        ],
+        [
+            "y es el mejor jugador de la historia del futbol?",
+            "La discusión sobre quién es el mejor jugador de la historia del fútbol es altamente subjetiva y depende de muchas opiniones. Lionel Messi es, sin duda, uno de los candidatos principales para ese título, junto con otros jugadores legendarios como Pelé, Diego Maradona, Cristiano Ronaldo, Johan Cruyff y muchos más. Messi ha logrado una cantidad impresionante de trofeos, récords y reconocimientos individuales, incluyendo varios Balones de Oro.\n\nAl final, la elección del \"mejor jugador de la historia\" puede depender de criterios como la era en la que jugaron, el estilo de juego preferido y la conexión personal que los aficionados tienen con ciertos jugadores. ¿Tú qué opinas? ¿Consideras que Messi es el mejor, o tienes otro favorito?"
+        ]
+    ],
+    [
+        [
+            "Cual es la mejor forma para aprender a programar?",
+            "Aprender a programar puede ser una experiencia gratificante, y hay varias formas de hacerlo. Aquí hay algunos pasos y consejos que podrían ayudarte:\n\n1. **Elige un Lenguaje de Programación**: Comienza con un lenguaje que sea amigable para principiantes, como Python, JavaScript o Ruby. Python es muy popular debido a su sintaxis sencilla y su amplia aplicación en diversas áreas.\n\n2. **Recursos en Línea**: Hay muchos cursos gratuitos y de pago disponibles en plataformas como Coursera, edX, Udemy, y Codecademy. También puedes explorar tutoriales en YouTube.\n\n3. **Libros**: Existen numerosos libros diseñados para principiantes. Algunos recomendados son \"Automate the Boring Stuff with Python\" para Python y \"Eloquent JavaScript\" para JavaScript.\n\n4. **Práctica Constante**: La programación es una habilidad que se mejora con la práctica. Trata de resolver problemas en plataformas como HackerRank, LeetCode o freeCodeCamp.\n\n5. **Proyectos Personales**: Aplica lo que aprendes creando tus propios proyectos. Esto puede ser una excelente manera de consolidar tus habilidades y construir un portafolio.\n\n6. **Participa en Comunidades**: Únete a foros como Stack Overflow, Reddit o grupos de Facebook sobre programación. Esto te permitirá hacer preguntas y aprender de otros.\n\n7. **Estudia Algoritmos y Estructuras de Datos**: A medida que te sientas más cómodo, comienza a aprender sobre algoritmos y estructuras de datos, que son fundamentales para resolver problemas eficientemente.\n\n8. **Colaboración**: Trabaja en proyectos de código abierto o colabora con otros programadores. Esta experiencia te permitirá aprender de otros y mejorar tus habilidades.\n\n9. **No Te Frustres**: La programación puede ser difícil al principio. Es normal cometer errores y sentirse frustrado, pero lo importante es seguir practicando y no rendirse.\n\nRecuerda que cada persona aprende a su propio ritmo, así que encuentra el método que mejor se adapte a ti. ¡Buena suerte en tu camino hacia la programación!"
         ]
     ]
 ]

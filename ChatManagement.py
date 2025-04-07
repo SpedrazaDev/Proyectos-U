@@ -1,3 +1,5 @@
+import requests
+from API import URL_PHP
 from UsrManagement import *
 import json
 import re
@@ -43,42 +45,6 @@ def escribirArchivosConv(nombreUsr, conversacion):
         json.dump(historialConv, archivo, ensure_ascii=False, indent=4)
 
 
-
-#--------Codigo sin Usar
-def cargarArchivosConv(nombreUsr):
-    """Método que carga los archivos que estan en la carpeta de conversaciones
-
-    Args:
-        nombreUsr (str): Nombre de usuario del inicio de sesión
-
-    Returns:
-        list: retorna la lectura de todas las líneas del archivo
-    """
-    carpeta = "conv"
-    rutaArchivo = os.path.join(carpeta, f"{nombreUsr}Historial.json")
-
-    if not os.path.exists(rutaArchivo):
-        print("No hay historial previo. Empezando una nueva conversación.")
-        return [{"role": "system", "content": "Eres un asistente útil y conversacional."}]
-
-    with open(rutaArchivo, "r", encoding="utf-8") as archivo:
-        try:
-            historial = json.load(archivo)
-        except json.JSONDecodeError:
-            print("Error al leer el archivo JSON. Se iniciará una conversación nueva.")
-            return [{"role": "system", "content": "Eres un asistente útil y conversacional."}]
-
-    conversacion = [{"role": "system", "content": "Eres un asistente útil y conversacional."}]
-
-    for bloque in historial:
-        if isinstance(bloque, list) and len(bloque) >= 2:  # Asegura que haya datos válidos
-            for i in range(1, len(bloque)):
-                if isinstance(bloque[i], list) and len(bloque[i]) == 2:
-                    conversacion.append({"role": "user", "content": bloque[i][0]})
-                    conversacion.append({"role": "assistant", "content": bloque[i][1]})
-    return conversacion
-
-
 def historialConversaciones(nombreUsr):
     """Método para mostrar el historial de conversaciones
 
@@ -100,10 +66,10 @@ def historialConversaciones(nombreUsr):
         return
 
     print("\n--- HISTORIAL DE CONVERSACIÓN ---")
-    for indice, intercambio in enumerate(historialCargado, start=1):
+    for indice, intercambio in enumerate(historialCargado, start=1):    # Recorrer el historial de conversaciones cargado (historialCargado es una lista de bloques de conversación) enumerandolos desde el 1
         print(f"\n--- Conversación {indice}: ---")
         for mensaje in intercambio:
-            if isinstance(mensaje, list) and len(mensaje) == 2:  # Verifica formato esperado
+            if isinstance(mensaje, list) and len(mensaje) == 2:  # Verificar que el mensaje sea una lista con 2 elementos (usuario y ChatGPT)
                 print(f"\nUsuario: {mensaje[0]}")
                 print(f"ChatGPT: {mensaje[1]}")
             else:
@@ -133,34 +99,34 @@ def palabrasClave(nombreUsr):
         return
 
     palabraClave = input("Ingrese la palabra clave a buscar: ").strip() # Solicita la palabra clave
-    if not palabraClave:
+    if not palabraClave:  # Verifica si el usuario no ingresó ninguna palabra clave
         print("No ingresaste ninguna palabra clave.")
         return
     
 
-    # Códigos ANSI para color (amarillo en este caso)
-    COLOR = "\033[31m"
-    RESET = "\033[0m"
+   
+    COLOR = "\033[31m"  # Definir el color de resaltado en rojo
+    RESET = "\033[0m"   # Definit el color original
 
 
-     # Expresión regular para buscar solo la palabra exacta (ignorando mayúsculas/minúsculas)
-    regex = re.compile(rf"\b{re.escape(palabraClave)}\b", re.IGNORECASE)
 
-    coincidencias = []
+    regex = re.compile(rf"\b{re.escape(palabraClave)}\b", re.IGNORECASE)  # Expresión regular para buscar solo la palabra exacta (ignorando mayúsculas/minúsculas)
+
+    coincidencias = []   # Lista vacía que guardará las coincidencias encontradas
 
     print("\n--- RESULTADOS DE LA BÚSQUEDA ---")
-    for indice, intercambio in enumerate(historialCargado, start=1):
-        for mensaje in intercambio:
-            if isinstance(mensaje, list) and len(mensaje) == 2:  # Verifica formato esperado
+    for indice, intercambio in enumerate(historialCargado, start=1):   # Recorrer el historial de conversaciones cargado (historialCargado es una lista de bloques de conversación)
+        for mensaje in intercambio:    # Dentro de cada intercambio hay una lista de mensajes entre el usuario y el asistente
+            if isinstance(mensaje, list) and len(mensaje) == 2:  # Verificar que el mensaje sea una lista con 2 elementos (usuario y ChatGPT)
                 usuario, chatgpt = mensaje
-                if regex.search(usuario) or regex.search(chatgpt):  # Busca la palabra exacta
+                if regex.search(usuario) or regex.search(chatgpt):   # Si la palabra clave está presente en el mensaje del usuario o en el mensaje del asistente, se registra la coincidencia
                     # Reemplaza la palabra exacta con color
                     palabra_usuario_resaltado = regex.sub(f"{COLOR}\\g<0>{RESET}", usuario)
                     palabra_chatgpt_resaltado = regex.sub(f"{COLOR}\\g<0>{RESET}", chatgpt)
-                    coincidencias.append((indice, palabra_usuario_resaltado, palabra_chatgpt_resaltado))
+                    coincidencias.append((indice, palabra_usuario_resaltado, palabra_chatgpt_resaltado))  # Añade la conversación y los mensajes resaltados a la lista de coincidencias
 
 
-    if coincidencias:
+    if coincidencias:   #Si se encuentran coincidencias, que se impriman al partir del siguiente formato
         for conv, usuario, chatgpt in coincidencias:
             print(f"\n--- Conversación {conv}: ---")
             print(f"Usuario: {usuario}")
@@ -173,20 +139,59 @@ def palabrasClave(nombreUsr):
 
 
 
-def resumirConversacion():
-    """Método para resumir conversacion 
+def resumirConversacion(nombreUsr):
+    """Resume el historial de conversación guardado para un usuario en un máximo de 50 palabras 
+
+    Args:
+        nombreUsr (str): nombre del usuario que inicio sesión
+
+    Returns:
+        _type_: el resumen hecho
     """
-    # carpeta = "conv"
-    # rutaArchivo = os.path.join(carpeta, f"{nombreUsr}Historial.json")
+    carpeta = "conv"
+    rutaArchivo = os.path.join(carpeta, f"{nombreUsr}Historial.json")
 
 
-    # try:
-    #     with open(rutaArchivo, "r", encoding="utf-8") as archivo:
-    #         historialCargado = json.load(archivo)
-    # except json.JSONDecodeError:
-    #     print("Error al leer el historial. El archivo podría estar corrupto.")
-    #     return
+    try:
+        with open(rutaArchivo, "r", encoding="utf-8") as archivo:
+            historialCargado = json.load(archivo)
+    except json.JSONDecodeError:
+        print("Error al leer el historial. El archivo podría estar corrupto.")
+        return
     
-    pass
+    # Mostrar lista de conversaciones
+    for i, conv in enumerate(historialCargado):  #Enumerar los indicies de las conversaciones del historial cargado
+        print(f"{i}. {conv[0][0][:50]}...")  # muestra inicio del primer mensaje
+
+    indice = int(input("Elige el número de la conversación que quieres resumir: "))
+    
+    # Asegurarse de que el índice esté dentro de los límites del historial
+    if indice < 0 or indice >= len(historialCargado):
+        print("Índice no válido.")
+        return
+
+
+    conversacion = []  # Lista vacía donde se guardarán todos los mensajes con estructura tipo(role/user-content)
+
+    bloque = historialCargado[indice]  # Obtiene solo el bloque de la conversación seleccionada
+    for par in bloque:  # Recorrer cada par(Pregunta/Respuesta) dentro del bloque
+        if isinstance(par, list) and len(par) == 2:  # Revisar que cada par(Pregunta/Respuesta) sea una lista con dos elementos
+            conversacion.append({"role": "user", "content": par[0]})  # Agrega el mensaje del usuario 
+            conversacion.append({"role": "assistant", "content": par[1]})  # Agrega la respuesta del asistente
+
+    # Agregar la instrucción de resumen como última entrada
+    conversacion.append({
+        "role": "user",
+        "content": "Resume esta conversación en un máximo de 50 palabras."
+    })
+    try:
+        resp = requests.post(URL_PHP, json={"messages": conversacion})  #Se envía la conversación
+        resumen = resp.json()["choices"][0]["message"]["content"]   # Obtiene el texto del resumen desde la respuesta de la API
+        print(resumen)
+        return resumen
+    except Exception as e:
+        return f"Error al generar el resumen: {e}"
+    
+
     
 

@@ -80,7 +80,7 @@ def menuHistorialConversaciones(nombreUsr):
             elif choice == 2:
                 ChatManagement.palabrasClave(nombreUsr)
             elif choice == 3:
-                pass
+                ChatManagement.resumirConversacion(nombreUsr)
             elif choice == 4:
                 return(subMenuInicioSesion(nombreUsr))
             else:
